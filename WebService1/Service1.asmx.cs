@@ -29,6 +29,12 @@ namespace WebService1
 			// Session ID doesn't seem to do bugger all.. subsequent calls indicate the user is not connected to Sage...
 			return Sage200Context.OpenSession(user, password, company);			
         }
+        [WebMethod]
+        public string OpenSession(string user, string password, int companyID)
+        {
+            // Session ID doesn't seem to do bugger all.. subsequent calls indicate the user is not connected to Sage...
+            return Sage200Context.OpenSession(user, password, companyID);
+        }
 
         [WebMethod]
         public void CloseSession(string sessionID, bool bForce)

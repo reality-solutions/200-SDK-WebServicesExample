@@ -39,8 +39,35 @@ namespace WebService1
             return sessionID;
         }
 
+        public static string OpenSession(string user, string password, int companyID)
+        {
+            string sessionID = string.Empty;
 
-		public static void CloseSession(string sessionID)
+            using (ImpersonationScope scope = new ImpersonationScope(user, password))
+            {
+                System.Net.ServicePointManager.SecurityProtocol =
+    System.Net.SecurityProtocolType.Tls12;
+
+                SAAClientAPI.Logon(SessionSourceEnum.Web);
+                List<Company> companies = SAAClientAPI.CompaniesGet();
+
+                foreach (Company company in companies)
+                {
+                    if (company.CompanyNumber == companyID)
+                    {
+                        SAAClientAPI.ConnectCompany(company);
+                        sessionID = Sage.Common.Contexts.SessionContextValues.SessionID;
+
+                        break;
+                    }
+                }
+            }
+
+            return sessionID;
+        }
+
+
+        public static void CloseSession(string sessionID)
 		{
 			SAAClientAPI.SetSessionContext(sessionID);
 			SAAClientAPI.DisconnectCompany();
