@@ -18,6 +18,22 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="OpenSessionByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="companyID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OpenSessionByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OpenSessionByIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="CloseSession">
         <s:complexType>
           <s:sequence>
@@ -55,6 +71,12 @@
   <wsdl:message name="OpenSessionSoapOut">
     <wsdl:part name="parameters" element="tns:OpenSessionResponse" />
   </wsdl:message>
+  <wsdl:message name="OpenSessionByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:OpenSessionByID" />
+  </wsdl:message>
+  <wsdl:message name="OpenSessionByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:OpenSessionByIDResponse" />
+  </wsdl:message>
   <wsdl:message name="CloseSessionSoapIn">
     <wsdl:part name="parameters" element="tns:CloseSession" />
   </wsdl:message>
@@ -72,6 +94,10 @@
       <wsdl:input message="tns:OpenSessionSoapIn" />
       <wsdl:output message="tns:OpenSessionSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="OpenSessionByID">
+      <wsdl:input message="tns:OpenSessionByIDSoapIn" />
+      <wsdl:output message="tns:OpenSessionByIDSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="CloseSession">
       <wsdl:input message="tns:CloseSessionSoapIn" />
       <wsdl:output message="tns:CloseSessionSoapOut" />
@@ -85,6 +111,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="OpenSession">
       <soap:operation soapAction="http://tempuri.org/OpenSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenSessionByID">
+      <soap:operation soapAction="http://tempuri.org/OpenSessionByID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -115,6 +150,15 @@
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="OpenSession">
       <soap12:operation soapAction="http://tempuri.org/OpenSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenSessionByID">
+      <soap12:operation soapAction="http://tempuri.org/OpenSessionByID" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

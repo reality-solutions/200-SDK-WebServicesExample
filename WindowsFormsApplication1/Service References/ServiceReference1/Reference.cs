@@ -19,6 +19,10 @@ namespace WindowsFormsApplication1.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OpenSession", ReplyAction="*")]
         WindowsFormsApplication1.ServiceReference1.OpenSessionResponse OpenSession(WindowsFormsApplication1.ServiceReference1.OpenSessionRequest request);
         
+        // CODEGEN: Generating message contract since element name user from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/OpenSessionByID", ReplyAction="*")]
+        WindowsFormsApplication1.ServiceReference1.OpenSessionByIDResponse OpenSessionByID(WindowsFormsApplication1.ServiceReference1.OpenSessionByIDRequest request);
+        
         // CODEGEN: Generating message contract since element name sessionID from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CloseSession", ReplyAction="*")]
         WindowsFormsApplication1.ServiceReference1.CloseSessionResponse CloseSession(WindowsFormsApplication1.ServiceReference1.CloseSessionRequest request);
@@ -101,6 +105,82 @@ namespace WindowsFormsApplication1.ServiceReference1 {
         
         public OpenSessionResponseBody(string OpenSessionResult) {
             this.OpenSessionResult = OpenSessionResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class OpenSessionByIDRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="OpenSessionByID", Namespace="http://tempuri.org/", Order=0)]
+        public WindowsFormsApplication1.ServiceReference1.OpenSessionByIDRequestBody Body;
+        
+        public OpenSessionByIDRequest() {
+        }
+        
+        public OpenSessionByIDRequest(WindowsFormsApplication1.ServiceReference1.OpenSessionByIDRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class OpenSessionByIDRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string user;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string password;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public int companyID;
+        
+        public OpenSessionByIDRequestBody() {
+        }
+        
+        public OpenSessionByIDRequestBody(string user, string password, int companyID) {
+            this.user = user;
+            this.password = password;
+            this.companyID = companyID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class OpenSessionByIDResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="OpenSessionByIDResponse", Namespace="http://tempuri.org/", Order=0)]
+        public WindowsFormsApplication1.ServiceReference1.OpenSessionByIDResponseBody Body;
+        
+        public OpenSessionByIDResponse() {
+        }
+        
+        public OpenSessionByIDResponse(WindowsFormsApplication1.ServiceReference1.OpenSessionByIDResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class OpenSessionByIDResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string OpenSessionByIDResult;
+        
+        public OpenSessionByIDResponseBody() {
+        }
+        
+        public OpenSessionByIDResponseBody(string OpenSessionByIDResult) {
+            this.OpenSessionByIDResult = OpenSessionByIDResult;
         }
     }
     
@@ -293,6 +373,21 @@ namespace WindowsFormsApplication1.ServiceReference1 {
             inValue.Body.company = company;
             WindowsFormsApplication1.ServiceReference1.OpenSessionResponse retVal = ((WindowsFormsApplication1.ServiceReference1.Service1Soap)(this)).OpenSession(inValue);
             return retVal.Body.OpenSessionResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WindowsFormsApplication1.ServiceReference1.OpenSessionByIDResponse WindowsFormsApplication1.ServiceReference1.Service1Soap.OpenSessionByID(WindowsFormsApplication1.ServiceReference1.OpenSessionByIDRequest request) {
+            return base.Channel.OpenSessionByID(request);
+        }
+        
+        public string OpenSessionByID(string user, string password, int companyID) {
+            WindowsFormsApplication1.ServiceReference1.OpenSessionByIDRequest inValue = new WindowsFormsApplication1.ServiceReference1.OpenSessionByIDRequest();
+            inValue.Body = new WindowsFormsApplication1.ServiceReference1.OpenSessionByIDRequestBody();
+            inValue.Body.user = user;
+            inValue.Body.password = password;
+            inValue.Body.companyID = companyID;
+            WindowsFormsApplication1.ServiceReference1.OpenSessionByIDResponse retVal = ((WindowsFormsApplication1.ServiceReference1.Service1Soap)(this)).OpenSessionByID(inValue);
+            return retVal.Body.OpenSessionByIDResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

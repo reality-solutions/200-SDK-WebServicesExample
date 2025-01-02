@@ -39,7 +39,7 @@ namespace WebService1
             return sessionID;
         }
 
-        public static string OpenSession(string user, string password, int companyID)
+        public static string OpenSessionByID(string user, string password, int companyID)
         {
             string sessionID = string.Empty;
 
