@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WebService1</RootNamespace>
     <AssemblyName>WebService1</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
     <TargetFrameworkProfile />
     <FileUpgradeFlags>
@@ -26,6 +26,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,44 +48,32 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Sage.Accounting.Common, Version=17.2.0.0, Culture=neutral, PublicKeyToken=b2daa66d74953d11, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\Dev\Sage200\sage200\Std18\Indigo\Source\Dependencies\Sage.Accounting.Common.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Sage.Accounting.Common">
+      <HintPath>Z:\Source Code\DLL Storage\Sage\Sage 200\v12.00\2024 R1\Sage.Accounting.Common.dll</HintPath>
     </Reference>
     <Reference Include="Sage.Accounting.Financials">
-      <HintPath>D:\Dev\Sage200\sage200\Std18\Indigo\Source\Dependencies\Sage.Accounting.Financials.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>Z:\Source Code\DLL Storage\Sage\Sage 200\v12.00\2024 R1\Sage.Accounting.Financials.dll</HintPath>
     </Reference>
-    <Reference Include="Sage.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=6e1ad03deaa1eb79, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\Dev\Sage200\sage200\Std18\Indigo\Source\Dependencies\Sage.Common.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Sage.Common">
+      <HintPath>Z:\Source Code\DLL Storage\Sage\Sage 200\v12.00\2024 R1\Sage.Common.dll</HintPath>
     </Reference>
     <Reference Include="Sage.IO.Local">
-      <HintPath>D:\Dev\Sage200\sage200\Std18\Indigo\Source\Dependencies\Sage.IO.Local.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>Z:\Source Code\DLL Storage\Sage\Sage 200\v12.00\2024 R1\Sage.IO.Local.dll</HintPath>
     </Reference>
-    <Reference Include="Sage.MMS.SAA.Client, Version=17.2.0.0, Culture=neutral, PublicKeyToken=b2daa66d74953d11, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\Dev\Sage200\sage200\Std18\Indigo\Source\Dependencies\Sage.MMS.SAA.Client.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Sage.MMS.SAA.Client">
+      <HintPath>Z:\Source Code\DLL Storage\Sage\Sage 200\v12.00\2024 R1\Sage.MMS.SAA.Client.dll</HintPath>
     </Reference>
     <Reference Include="Sage.ObjectStore">
-      <HintPath>D:\Dev\Sage200\sage200\Std18\Indigo\Source\Dependencies\Sage.ObjectStore.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>Z:\Source Code\DLL Storage\Sage\Sage 200\v12.00\2024 R1\Sage.ObjectStore.dll</HintPath>
     </Reference>
     <Reference Include="Sage.ObjectStore.Builder">
-      <HintPath>D:\Dev\Sage200\sage200\Std18\Indigo\Source\Dependencies\Sage.ObjectStore.Builder.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>Z:\Source Code\DLL Storage\Sage\Sage 200\v12.00\2024 R1\Sage.ObjectStore.Builder.dll</HintPath>
     </Reference>
     <Reference Include="Sage.Utils">
-      <HintPath>D:\Dev\Sage200\sage200\Std18\Indigo\Source\Dependencies\Sage.Utils.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>Z:\Source Code\DLL Storage\Sage\Sage 200\v12.00\2024 R1\Sage.Utils.dll</HintPath>
     </Reference>
     <Reference Include="Sage.Web.Services.AutoStartProvider">
-      <HintPath>D:\Dev\Sage200\sage200\Std18\Indigo\Source\Dependencies\Sage.Web.Services.AutoStartProvider.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>Z:\Source Code\DLL Storage\Sage\Sage 200\v12.00\Web\Sage.Web.Services.AutoStartProvider.DLL</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -113,6 +102,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsSageConnection.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

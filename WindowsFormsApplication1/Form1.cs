@@ -24,11 +24,11 @@ namespace WindowsFormsApplication1
 		{
 			try
 			{
-				string user = @"username";
-				string password = @"password";
+				string user = @"REALITY\markwilson";
+				string password = @"Glass$Door4399";
 				
 				ServiceReference1.Service1SoapClient client = new ServiceReference1.Service1SoapClient();
-                string value = client.OpenSession(user, password, "Company 1");
+                string value = client.OpenSession(user, password, "Demo Company");
 				_sessionID = value;
 				textBox1.Text = value;
 			}
@@ -44,7 +44,7 @@ namespace WindowsFormsApplication1
 			try
 			{
 				ServiceReference1.Service1SoapClient client = new ServiceReference1.Service1SoapClient();
-				client.CloseSession(_sessionID);
+				client.CloseSession(_sessionID, false);
 				_sessionID = string.Empty;
 				textBox1.Text = _sessionID;
 			}
@@ -59,8 +59,11 @@ namespace WindowsFormsApplication1
 		{
 			try
 			{
-				ServiceReference1.Service1SoapClient client = new ServiceReference1.Service1SoapClient();
-				string value = client.FetchCustomer(_sessionID, "BET001");
+                string user = @"REALITY\markwilson";
+                string password = @"Glass$Door4399";
+
+                ServiceReference1.Service1SoapClient client = new ServiceReference1.Service1SoapClient();
+				string value = client.FetchCustomer(_sessionID, "BET001", user, password, "Demo Company");
 				textBox1.Text = value;
 			}
 			catch(Exception ex)
